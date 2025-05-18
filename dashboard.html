@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel do Cliente</title>
+</head>
+<body>
+  <h2>Bem-vindo ao DK Flix TV</h2>
+  <div id="info"></div>
+  <a href="https://pag.ae/7XYTksVX2" target="_blank">Renovar Assinatura</a><br>
+  <a href="https://wa.me/5511945220449" target="_blank">Suporte via WhatsApp</a>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) location.href = 'login.html';
+
+    document.getElementById('info').innerHTML = \`
+      <p><strong>Email:</strong> \${user.email}</p>
+      <p><strong>Link IPTV:</strong> <a href="\${user.link}" target="_blank">\${user.link}</a></p>
+      <p><strong>Validade:</strong> \${user.validade}</p>
+    \`;
+  </script>
+</body>
+</html>
